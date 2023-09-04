@@ -107,3 +107,4 @@ if numero > 0:
     imprimir_triangulo(numero, tipo_triangulo)
 else:
     print("El número ingresado no es válido. Debe ser un entero positivo.")
+c++
