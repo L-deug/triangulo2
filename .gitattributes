@@ -1,2 +1,109 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero, tipo_triangulo;
+
+    // Solicitar al usuario un número entero positivo
+    cout << "Ingrese un número de *: ";
+    cin >> numero;
+
+    if (numero > 0) {
+        // Solicitar al usuario el tipo de triángulo
+        cout << "Seleccione el tipo de triángulo rectángulo:" << endl;
+        cout << "1. Triángulo rectángulo con base a la izquierda" << endl;
+        cout << "2. Triángulo rectángulo con base a la derecha" << endl;
+        cout << "3. Triángulo rectángulo con base arriba" << endl;
+        cout << "4. Triángulo rectángulo con base abajo" << endl;
+        cout << "Ingrese el número correspondiente al tipo de triángulo: ";
+        cin >> tipo_triangulo;
+
+        // Imprimir el triángulo seleccionado
+        if (tipo_triangulo == 1) {
+            // Triángulo rectángulo con base a la izquierda
+            for (int i = 1; i <= numero; i++) {
+                for (int j = 1; j <= i; j++) {
+                    cout << "*";
+                }
+                cout << endl;
+            }
+        } else if (tipo_triangulo == 2) {
+            // Triángulo rectángulo con base a la derecha
+            for (int i = 1; i <= numero; i++) {
+                for (int j = 1; j <= numero - i; j++) {
+                    cout << " ";
+                }
+                for (int j = 1; j <= i; j++) {
+                    cout << "*";
+                }
+                cout << endl;
+            }
+        } else if (tipo_triangulo == 3) {
+            // Triángulo rectángulo con base arriba
+            for (int i = 1; i <= numero; i++) {
+                for (int j = 1; j <= numero - i; j++) {
+                    cout << " ";
+                }
+                for (int j = 1; j <= i; j++) {
+                    cout << "*";
+                }
+                cout << endl;
+            }
+        } else if (tipo_triangulo == 4) {
+            // Triángulo rectángulo con base abajo
+            for (int i = numero; i >= 1; i--) {
+                for (int j = 1; j <= numero - i; j++) {
+                    cout << " ";
+                }
+                for (int j = 1; j <= i; j++) {
+                    cout << "*";
+                }
+                cout << endl;
+            }
+        } else {
+            cout << "Tipo de triángulo es incorrecto" << endl;
+        }
+    } else {
+        cout << "El número ingresado no es válido. Debe ser un numero positivo." << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+# Función para imprimir un triángulo rectángulo
+def imprimir_triangulo(n, tipo):
+    if tipo == 1:
+        for i in range(1, n + 1):
+            print("*" * i)
+    elif tipo == 2:
+        for i in range(n, 0, -1):
+            print("*" * i)
+    elif tipo == 3:
+        for i in range(1, n + 1):
+            print(" " * (n - i) + "*" * i)
+    elif tipo == 4:
+        for i in range(n, 0, -1):
+            print(" " * (n - i) + "*" * i)
+    else:
+        print("Tipo de triángulo no válido")
+
+# Solicitar al usuario un número entero positivo
+numero = int(input("Ingrese un número de * : "))
+
+if numero > 0:
+    # Solicitar al usuario el tipo de triángulo
+    print("Seleccione el tipo de triángulo rectángulo:")
+    print("1. Triángulo rectángulo con base a la izquierda")
+    print("2. Triángulo rectángulo con base a la derecha")
+    print("3. Triángulo rectángulo con base arriba")
+    print("4. Triángulo rectángulo con base abajo")
+    tipo_triangulo = int(input("Ingrese el número correspondiente al tipo de triángulo: "))
+
+    # Llamar a la función para imprimir el triángulo
+    imprimir_triangulo(numero, tipo_triangulo)
+else:
+    print("El número ingresado no es válido. Debe ser un entero positivo.")
